@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Irrecusável</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn-no {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>c*zinho hoje?</h1>
+    <div class="buttons">
+        <button class="btn btn-yes" onclick="redirectToWhatsApp()">Sim</button>
+        <button class="btn btn-no" onmouseover="moveButton()">Não</button>
+    </div>
+
+    <script>
+        function redirectToWhatsApp() {
+            const message = encodeURIComponent('Estou esperando');
+            window.location.href = `https://wa.me/5511954527854?text=${message}`;
+        }
+
+        function moveButton() {
+            const button = document.querySelector('.btn-no');
+            const x = Math.random() * (window.innerWidth - button.offsetWidth);
+            const y = Math.random() * (window.innerHeight - button.offsetHeight);
+            button.style.position = 'absolute';
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
